@@ -6,17 +6,18 @@
 var numDistinct = function(s, t) {
     let n=s.length;
     let m=t.length;
-    let dp=Array.from({length:n+1} , ()=>Array(m+1).fill(-1));
-    function count_occ(s1,s2,idx1,idx2){
-        if(idx2===0) return 1;
-        if(idx1===0) return 0;
-        if(dp[idx1][idx2] !==-1) return dp[idx1][idx2];
-        if(s1[idx1-1]===s2[idx2-1]){
-            dp[idx1][idx2]=count_occ(s1,s2,idx1-1,idx2-1)+count_occ(s1,s2,idx1-1,idx2);
-        }else{
-            dp[idx1][idx2]=count_occ(s1,s2,idx1-1,idx2);
-        }
-        return dp[idx1][idx2];
+    let dp=Array.from({length:n+1},()=>Array(m+1).fill(0));
+    for(let i=0;i<=n;i++){
+        dp[i][0]=1;
     }
-    return count_occ(s,t,n,m);
+    for(let i=1;i<=n;i++){
+        for(let j=1;j<=m;j++){
+            if(s[i-1]===t[j-1]){
+                dp[i][j]=dp[i-1][j-1]+dp[i-1][j];
+            }else{
+                dp[i][j]=dp[i-1][j];
+            }
+        }
+    }
+    return dp[n][m];
 };
