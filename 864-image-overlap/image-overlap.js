@@ -12,7 +12,7 @@ var largestOverlap = function(A, B) {
             for(let j=0;j<n;j++){
                 let bi=i+row_off;
                 let bj=j+col_off;
-                if(bi<0||bi>=n||bj<0||bj>n) continue;
+                if(bi<0||bi>=n||bj<0||bj>=n) continue;
                 if(A[i][j]===1 &&B[bi][bj]===1) {
                     cnt=cnt+1;
                 }
