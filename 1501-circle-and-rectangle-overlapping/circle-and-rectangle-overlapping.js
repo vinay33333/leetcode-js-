@@ -22,9 +22,9 @@ var checkOverlap = function(radius, xCenter, yCenter, x1, y1, x2, y2) {
         yc=y2;
     }else yc=yCenter;
     let dist=Math.sqrt((xc-xCenter)*(xc-xCenter) + (yc-yCenter)*(yc-yCenter));
-    if(dist<radius){
-        return true;
+    if(dist>radius){
+        return false;
     }else if(dist===radius){
         return true;
-    }else return false;
+    }else return true;
 };
