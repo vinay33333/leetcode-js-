@@ -11,7 +11,7 @@ var capitalizeTitle = function(title) {
         if(word.length===1 ||word.length===2){
             ans=word.toLowerCase();
         }else {
-            ans=word[0].toUpperCase() +word.slice(1).toLowerCase();
+            ans=word[0].toUpperCase() +word.slice(1,word.length).toLowerCase();
         }
         res.push(ans);
     }
