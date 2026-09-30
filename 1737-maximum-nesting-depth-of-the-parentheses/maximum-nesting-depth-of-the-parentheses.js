@@ -4,12 +4,14 @@
  */
 var maxDepth = function(s) {
     let cnt=0;
-    let max_p=0;
-    for(let ch of s){
-        if(ch==='('){
+    let max_cnt=0;
+    for(let i=0;i<s.length;i++){
+        if(s[i]==='('){
             cnt++;
-            max_p=Math.max(max_p,cnt);
-        }else if(ch===")") cnt--;
+            max_cnt=Math.max(max_cnt,cnt);
+        }else if(s[i]===')'){
+            cnt--;
+        }
     }
-    return max_p;
+    return max_cnt;
 };
