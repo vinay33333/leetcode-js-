@@ -3,14 +3,13 @@
  * @return {number}
  */
 var sumOfSquares = function(nums) {
-    let total_sum=0;
+    let t_sum=0;
     let n=nums.length;
-    for(let i=0;i<n;i++){
-        let pos=i+1;
-        if(n%pos ===0){
-            let val=nums[i];
-            total_sum=total_sum+val*val;
+    for(let i=1;i<=n;i++){
+        if(n%i===0){
+            let p_val=nums[i-1];
+            t_sum=t_sum+p_val*p_val;
         }
     }
-    return total_sum;
+    return t_sum;
 };
