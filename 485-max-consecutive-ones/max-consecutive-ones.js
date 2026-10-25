@@ -3,15 +3,14 @@
  * @return {number}
  */
 var findMaxConsecutiveOnes = function(nums) {
-    let cnt=0;
-    let max_range=0;
+    let max_cnt=0;
+    let new_map=new Map();
     for(let i=0;i<nums.length;i++){
         if(nums[i]===1){
-            cnt=cnt+1;
-            max_range=Math.max(max_range,cnt);
-        }else{
-            cnt=0;
-        }
+            new_map.set(1,(new_map.get(1)||0)+1);
+            max_cnt=Math.max(max_cnt,new_map.get(1));
+        }else new_map.set(1,0);
+
     }
-    return max_range;
+    return max_cnt;
 };
