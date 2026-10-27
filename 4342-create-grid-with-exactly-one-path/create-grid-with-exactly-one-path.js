@@ -3,19 +3,19 @@
  * @param {number} n
  * @return {string[]}
  */
-var createGrid = function(m, n) {
-    let grid=[];
-    for(let i=0;i<m;i++){
-        grid.push(Array(n).fill("#"));
+var createGrid = function(n,m) {
+    let g=[];
+    for(let i=0;i<n;i++){
+        g.push(Array(m).fill('#'));
     }
-    for(let j=0;j<n;j++){
-        grid[0][j]='.';
+    for(let k=0;k<m;k++){
+        g[0][k]='.';
     }
-    for(let i=0;i<m;i++){
-        grid[i][n-1]='.';
+    for(let i=0;i<n;i++){
+        g[i][m-1]='.';
     }
-    for(let i=0;i<m;i++){
-        grid[i]=grid[i].join("");
+    for(let i=0;i<n;i++){
+        g[i]=g[i].join("");
     }
-    return grid;
+    return g;
 };
