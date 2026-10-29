@@ -4,18 +4,18 @@
  * @return {number[]}
  */
 var intersect = function(nums1, nums2) {
-    let ptr1=0;
-    let ptr2=0;
-    let n3=[];
-    nums1.sort((n,m)=>n-m);
-    nums2.sort((n,m)=>n-m);
-    while(ptr1<nums1.length&&ptr2<nums2.length){
-        if(nums1[ptr1]===nums2[ptr2]){
-            n3.push(nums1[ptr1]);
-            ptr1++;
-            ptr2++;
-        }else if(nums1[ptr1]>nums2[ptr2]) ptr2++;
-        else ptr1++;
+    let ans=[];
+    let n=nums1.length;
+    let m=nums2.length;
+    let v=new Array(nums2.length).fill(0);
+    for(let i=0;i<n;i++){
+        for(let j=0;j<m;j++){
+            if(nums1[i]===nums2[j] &&v[j]===0){
+                ans.push(nums1[i]);
+                v[j]=1;
+                break;
+            }
+        }
     }
-    return n3;
+    return ans;
 };
