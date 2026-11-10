@@ -4,6 +4,7 @@
  */
 var climbStairs = function(n) {
     if(n===1) return 1;
+    if(n===2) return 2;
     let new_dp=new Array(n+1);
     new_dp[1]=1;
     new_dp[2]=2;
