@@ -3,11 +3,10 @@
  * @return {number}
  */
 var minChanges = function(s) {
-    let ans=0;
+    let cnt=0;
     for(let i=0;i<s.length;i+=2){
-        if(s[i]!==s[i+1]){
-            ans++;
-        }
+        let curr_ele=s[i];
+        if(curr_ele!==s[i+1]) cnt++;
     }
-    return ans;
+    return cnt;
 };
